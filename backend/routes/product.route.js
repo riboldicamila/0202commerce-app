@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import {
   deleteProduct,
   getProducts,
+  postProduct,
   updateProduct,
 } from "../controllers/product.controller.js";
 
