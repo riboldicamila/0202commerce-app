@@ -18,3 +18,11 @@ This project provides a basic setup for applications using Node.js, Express, and
 - **MongoDB**: NoSQL database used for storing application data in a flexible, JSON-like format.
 - **Postman**: API testing tool used to send HTTP requests and inspect responses during development.
 
+## 👩🏻‍💻 Single project deployment 
+code structure (backend serving the frontend)
+Aim is to deply to: 
+-Render
+-Railway
+-Fly.io
+
+-To run Express server which will serve your React frontend from the /frontend/dist folder.
