@@ -20,7 +20,7 @@ This project provides a basic setup for applications using Node.js, Express, and
 
 ## 👩🏻‍💻 Single project deployment 
 code structure (backend serving the frontend)
-Aim is to deply to: 
+Aim is to deploy to: 
 -Render
 -Railway
 -Fly.io
