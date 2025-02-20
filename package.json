@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon backend/server.js",
-    "dev-front": "cd frontend && npm run dev",
     "build": "npm install && npm install --prefix frontend/02commercepage && npm run build --prefix frontend/02commercepage",
     "start": "NODE_ENV=production node backend/server.js"
   },
