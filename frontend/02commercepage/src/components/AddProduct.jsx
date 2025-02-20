@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { addProduct } from '../services';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
+    name: '',
     price: '',
-    imageUrl: ''
+    image: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -22,23 +22,21 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-        //remove later, add real service
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Product added:', formData);
+      await addProduct(formData); 
+      console.log("Product added:", formData);
+
       setFormData({
-        title: '',
-        description: '',
-        price: '',
-        imageUrl: ''
+        name: "",
+        price: "",
+        image: "",
       });
-      
+
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
-      console.error('Error adding product:', error);
+      console.error("Error adding product:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -93,34 +91,18 @@ const AddProduct = () => {
               className="space-y-8"
             >
               <motion.div variants={itemVariants}>
-                <label className="block text-xs uppercase tracking-widest mb-2" htmlFor="title">
-                  Product Title
+                <label className="block text-xs uppercase tracking-widest mb-2" htmlFor="name">
+                  Product Name
                 </label>
                 <input
                   type="text"
-                  id="title"
-                  name="title"
-                  value={formData.title}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   required
                   className="w-full border-b border-gray-300 py-2 bg-transparent focus:border-black transition-colors duration-300 outline-none"
-                  placeholder="Enter product title"
-                />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label className="block text-xs uppercase tracking-widest mb-2" htmlFor="description">
-                  Product Description
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  required
-                  rows="4"
-                  className="w-full border-b border-gray-300 py-2 bg-transparent focus:border-black transition-colors duration-300 outline-none resize-none"
-                  placeholder="Enter product description"
+                  placeholder="Enter product name"
                 />
               </motion.div>
 
@@ -143,14 +125,14 @@ const AddProduct = () => {
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <label className="block text-xs uppercase tracking-widest mb-2" htmlFor="imageUrl">
+                <label className="block text-xs uppercase tracking-widest mb-2" htmlFor="image">
                   Image URL
                 </label>
                 <input
                   type="url"
-                  id="imageUrl"
-                  name="imageUrl"
-                  value={formData.imageUrl}
+                  id="image"
+                  name="image"
+                  value={formData.image}
                   onChange={handleChange}
                   required
                   className="w-full border-b border-gray-300 py-2 bg-transparent focus:border-black transition-colors duration-300 outline-none"
@@ -194,9 +176,9 @@ const AddProduct = () => {
               className="relative mb-8"
             >
               <div className="w-full h-64 md:h-96 bg-gray-100 rounded-sm overflow-hidden">
-                {formData.imageUrl ? (
+                {formData.image ? (
                   <img 
-                    src={formData.imageUrl} 
+                    src={formData.image} 
                     alt="Product preview" 
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -214,11 +196,8 @@ const AddProduct = () => {
 
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl mb-2">
-                {formData.title || "Product Name"}
+                {formData.name || "Product Name"}
               </h3>
-              <p className="text-gray-600 mb-3">
-                {formData.description || "Your product description will appear here. Add details about the product to help customers understand what makes it special."}
-              </p>
               {formData.price && (
                 <div className="text-xl">${parseFloat(formData.price).toFixed(2)}</div>
               )}

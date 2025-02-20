@@ -15,9 +15,9 @@ router.get("/", getProducts);
 
 router.post("/", postProduct);
 
-router.put("//:id", updateProduct);
+router.put("/:id", updateProduct);
 
-router.delete("//:id", deleteProduct);
+router.delete("/:id", deleteProduct);
 
 console.log(process.env.MONGO_URL);
 
