@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon backend/server.js",
-    "build": "npm install && npm install --prefix frontend/02commercepage && npm run build --prefix frontend/02commercepage",
-    "start": "node backend/server.js"
+    "build": "npm install && nom install --prefix frontend && npm run build --prefix frontend",
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "keywords": [],
   "author": "",
