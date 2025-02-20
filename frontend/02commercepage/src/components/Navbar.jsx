@@ -13,7 +13,6 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32">
         <img src={logo} alt="logo" className="h-16 md:h-20" />
         
-        {/* Desktop Navigation */}
         <div className="hidden md:block">
           <ul className="flex gap-7 text-white">
             <li>
