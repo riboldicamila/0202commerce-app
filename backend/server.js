@@ -11,7 +11,11 @@ dotenv.config();
 
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5179" }));
+app.use(cors({
+  origin: process.env.NODE_ENV === "production" 
+    ? process.env.CLIENT_URL 
+    : "http://localhost:5179"
+}));
 
 const PORT = process.env.PORT || 5000;
 
