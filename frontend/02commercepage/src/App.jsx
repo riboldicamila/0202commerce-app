@@ -1,10 +1,12 @@
-import Navbar from "./components/Navbar"
+import Header from "./components/Header"
+import Products from "./components/Products"
 
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      
+      <Header />
+      <Products />
+
     </div>
   )
 }
