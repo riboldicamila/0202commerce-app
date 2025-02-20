@@ -13,7 +13,7 @@ const Header = () => {
                 <h2 className='text-5xl sm:text-6xl md:text-[82px] inline-block max-w-3xl font-semibold'>Explore argentian products</h2>
                 <div className="space-x-6 mt-16">
                     <a href="#products" className="border border-white px-8 py-3 rounded hover:bg-white hover:text-blue-900 transition-colors">Products</a> 
-                    <a href="#contact" className="bg-blue-500 border-white px-8 py-3 rounded hover:bg-blue-600 transition-colors">Contact Us</a> 
+                    <a href="#about" className="bg-blue-500 border-white px-8 py-3 rounded hover:bg-blue-600 transition-colors">About Us</a> 
                 </div>
             </div>
         </div>
