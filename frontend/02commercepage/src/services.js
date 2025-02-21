@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5002/api/products";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5002/api/products";
 
 export const getProducts = async () => {
   try {
@@ -35,4 +35,3 @@ export const addProduct = async (productData) => {
     throw error;
   }
 };
-
