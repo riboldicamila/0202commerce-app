@@ -1,10 +1,11 @@
 import Product from "../models/product.models.js";
 
 
+// function is called when a HTTP request comes to your server
 export const getProducts = async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.status(200).json({ sucess: true, data: products });
+    const products = await Product.find({}); //Database query
+    res.status(200).json({ sucess: true, data: products }); //Send response as json
   } catch (error) {
     console.log("Error in fetch of product.", error.message);
     res.status(500).json({ success: false, message: "Server Error" });
